@@ -5,6 +5,9 @@
 
 #define MAX_LINE 80 /* 80 chars per line, per command, should be enough. */
 
+void printWelcome(int currpid) {
+	printf("Welcome to sfshell. My pid is %d \n", currpid);
+}
  
 /**
  * setup() reads in the next command line, separating it into distinct tokens
@@ -71,6 +74,7 @@ int main(void)
 char inputBuffer[MAX_LINE];      /* buffer to hold the command entered */
     int background;              /* equals 1 if a command is followed by '&' */
     char *args[(MAX_LINE/2)+1];  /* command line (of 80) has max of 40 arguments */
+    int promptCount = 1;
  
     while (1){            /* Program terminates normally inside setup */
        background = 0;
@@ -83,5 +87,16 @@ char inputBuffer[MAX_LINE];      /* buffer to hold the command entered */
        (2) the child process will invoke execvp()
        (3) if background == 0, the parent will wait,
             otherwise returns to the setup() function. */
+            
+       pid_t pid = fork();
+       printWelcome(pid.getpid());
+       
+       if (pid < 0) {
+        fprintf(stderr, "Fork Failed");
+        return 1; 
+       }
+       else if (pid == 0) {
+       	execvp(args[0], args);
+       }            
     }
 }
