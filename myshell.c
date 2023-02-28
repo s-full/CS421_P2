@@ -6,7 +6,11 @@
 #define MAX_LINE 80 /* 80 chars per line, per command, should be enough. */
 
 void printWelcome(int currpid) {
-	printf("Welcome to sfshell. My pid is %d \n", currpid);
+	printf("Welcome to sfshell. My pid is %d. \n", currpid);
+}
+void printPrompt(int* count) {
+    printf("sfshell[%d]: \n", *count);
+    (*count)++;
 }
  
 /**
@@ -71,15 +75,46 @@ void setup(char inputBuffer[], char *args[],int *background)
 
 int main(void)
 {
-char inputBuffer[MAX_LINE];      /* buffer to hold the command entered */
+    char inputBuffer[MAX_LINE];      /* buffer to hold the command entered */
     int background;              /* equals 1 if a command is followed by '&' */
     char *args[(MAX_LINE/2)+1];  /* command line (of 80) has max of 40 arguments */
     int promptCount = 1;
- 
+
+    int pidt = getpid();
+    printWelcome(pidt);
+    
     while (1){            /* Program terminates normally inside setup */
        background = 0;
-       printf(" COMMAND->\n");
+       printPrompt(&promptCount);
        setup(inputBuffer,args,&background);       /* get next command */
+        pid_t pid = fork();
+        if (pid < 0) {
+            fprintf(stderr, "Fork failed");
+            return 1;
+        }
+        else if (pid == 0) {
+
+           if (!strcmp("bg", args[0])) {
+                execvp("bg", args);
+            }
+            else if (!strcmp("jobs", args[0])) {
+                execvp("ps", args);
+            }
+            else if (!strcmp("fg", args[0])) {
+                execvp("fg", args);
+            }
+            else if (!strcmp("kill", args[0])) {
+                execvp("kill", args);
+            } 
+            else {
+
+            }
+        }
+        else {
+            waitpid(NULL);
+            printf("child complete\n");
+        }
+       
 
       /* the steps are:
        (0) if built-in command, handle internally
@@ -87,16 +122,13 @@ char inputBuffer[MAX_LINE];      /* buffer to hold the command entered */
        (2) the child process will invoke execvp()
        (3) if background == 0, the parent will wait,
             otherwise returns to the setup() function. */
-            
-       pid_t pid = fork();
-       printWelcome(pid.getpid());
        
-       if (pid < 0) {
-        fprintf(stderr, "Fork Failed");
-        return 1; 
-       }
-       else if (pid == 0) {
-       	execvp(args[0], args);
-       }            
+    //    if (pid < 0) {
+    //     fprintf(stderr, "Fork Failed");
+    //     return 1; 
+    //    }
+    //    else if (pid == 0) {
+    //    	execvp(args[0], args);
+    //    }            
     }
 }
