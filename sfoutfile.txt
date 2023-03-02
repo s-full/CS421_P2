@@ -1,0 +1,260 @@
+Script started on 2023-03-01 11:48:49-08:00 [TERM="xterm-256color" TTY="/dev/pts
+/5" COLUMNS="120" LINES="32"]
+sf@SF-Desktop:~/Documents/CS421_P2$ ./sfshell
+Welcome to sfshell. My pid is 5317. 
+sfshell[1]: 
+cp sfshell tempfile
+[Child pid = 5327, background = FALSE]
+Child process complete
+sfshell[2]: 
+ls -l tempfile
+[Child pid = 5337, background = FALSE]
+-rwxr-xr-x 1 sf sf 16880 Mar  1 11:49 tempfile
+Child process complete
+sfshell[3]: 
+time sleep 5
+[Child pid = 5344, background = FALSE]
+0.00user 0.00system 0:05.00elapsed 0%CPU (0avgtext+0avgdata 1944maxresident)k
+0inputs+0outputs (0major+99minor)pagefaults 0swaps
+Child process complete
+sfshell[4]: 
+time sleep 20 &
+sfshell[5]: 
+[Child pid = 5361, background = TRUE]
+date
+[Child pid = 5366, background = FALSE]
+Wed Mar  1 11:49:23 PST 2023
+Child process complete
+sfshell[6]: 
+0.00user 0.00system 0:20.00elapsed 0%CPU (0avgtext+0avgdata 2008maxresident)k
+0inputs+0outputs (0major+99minor)pagefaults 0swaps
+sleep 100 &
+sfshell[7]: 
+[Child pid = 5412, background = TRUE]
+stop 5412
+sfshell[8]: 
+ps a
+[Child pid = 5434, background = FALSE]
+  PID TTY      STAT   TIME COMMAND
+   43 pts/1    Ss+    0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh"
+ 441438abd1ac652551dbe4d408dfcec8a499b8b
+   44 pts/1    S+     0:00 sh /mnt/c/Users/Stefan/.vscode/extensions/ms-vscode-r
+emote.remote-wsl-0.75.3/scripts/wslServe
+   49 pts/1    S+     0:00 sh /home/sf/.vscode-server/bin/441438abd1ac652551dbe4
+d408dfcec8a499b8bf/bin/code-server --hos
+   53 pts/1    Sl+    0:03 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+   64 pts/1    Sl+    0:02 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  110 pts/1    Sl+    1:11 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  136 pts/1    Sl+    0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  178 pts/1    Sl+    0:19 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools
+  201 pts/4    Ss+    0:00 /bin/bash --init-file /home/sf/.vscode-server/bin/441
+438abd1ac652551dbe4d408dfcec8a499b8bf/ou
+  470 pts/3    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+  479 pts/2    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+ 2867 pts/0    Ss     0:00 -bash
+ 2915 pts/1    Sl+    0:00 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools-srv 178 {
+ 4847 pts/0    T      0:00 ./myshell
+ 5117 pts/0    T      0:00 ./myshell
+ 5218 pts/0    R+     0:00 script
+ 5219 pts/5    Ss     0:00 bash -i
+ 5304 pts/5    R+     0:00 script
+ 5305 pts/6    Ss     0:00 bash -i
+ 5317 pts/6    S+     0:00 ./sfshell
+ 5361 pts/6    Z+     0:00 [time] <defunct>
+ 5412 pts/6    T+     0:00 sleep 100
+ 5434 pts/6    R+     0:00 ps a
+Child process complete
+sfshell[9]: 
+bg 5412
+sfshell[10]: 
+ps a
+[Child pid = 5456, background = FALSE]
+  PID TTY      STAT   TIME COMMAND
+   43 pts/1    Ss+    0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh"
+ 441438abd1ac652551dbe4d408dfcec8a499b8b
+   44 pts/1    S+     0:00 sh /mnt/c/Users/Stefan/.vscode/extensions/ms-vscode-r
+emote.remote-wsl-0.75.3/scripts/wslServe
+   49 pts/1    S+     0:00 sh /home/sf/.vscode-server/bin/441438abd1ac652551dbe4
+d408dfcec8a499b8bf/bin/code-server --hos
+   53 pts/1    Sl+    0:03 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+   64 pts/1    Sl+    0:02 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  110 pts/1    Sl+    1:12 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  136 pts/1    Sl+    0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  178 pts/1    Sl+    0:19 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools
+  201 pts/4    Ss+    0:00 /bin/bash --init-file /home/sf/.vscode-server/bin/441
+438abd1ac652551dbe4d408dfcec8a499b8bf/ou
+  470 pts/3    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+  479 pts/2    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+ 2867 pts/0    Ss     0:00 -bash
+ 2915 pts/1    Sl+    0:00 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools-srv 178 {
+ 4847 pts/0    T      0:00 ./myshell
+ 5117 pts/0    T      0:00 ./myshell
+ 5218 pts/0    R+     0:00 script
+ 5219 pts/5    Ss     0:00 bash -i
+ 5304 pts/5    D+     0:00 script
+ 5305 pts/6    Ss     0:00 bash -i
+ 5317 pts/6    S+     0:00 ./sfshell
+ 5361 pts/6    Z+     0:00 [time] <defunct>
+ 5412 pts/6    S+     0:00 sleep 100
+ 5456 pts/6    R+     0:00 ps a
+Child process complete
+sfshell[11]: 
+stop 5412
+sfshell[12]: 
+fg 5412
+sfshell[13]: 
+sleep 100 &
+sfshell[14]: 
+[Child pid = 5679, background = TRUE]
+ps a
+[Child pid = 5689, background = FALSE]
+  PID TTY      STAT   TIME COMMAND
+   43 pts/1    Ss+    0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh"
+ 441438abd1ac652551dbe4d408dfcec8a499b8b
+   44 pts/1    S+     0:00 sh /mnt/c/Users/Stefan/.vscode/extensions/ms-vscode-r
+emote.remote-wsl-0.75.3/scripts/wslServe
+   49 pts/1    S+     0:00 sh /home/sf/.vscode-server/bin/441438abd1ac652551dbe4
+d408dfcec8a499b8bf/bin/code-server --hos
+   53 pts/1    Sl+    0:03 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+   64 pts/1    Sl+    0:02 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  110 pts/1    Sl+    1:16 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  136 pts/1    Sl+    0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  178 pts/1    Sl+    0:20 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools
+  201 pts/4    Ss+    0:00 /bin/bash --init-file /home/sf/.vscode-server/bin/441
+438abd1ac652551dbe4d408dfcec8a499b8bf/ou
+  470 pts/3    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+  479 pts/2    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+ 2867 pts/0    Ss     0:00 -bash
+ 2915 pts/1    Sl+    0:00 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools-srv 178 {
+ 4847 pts/0    T      0:00 ./myshell
+ 5117 pts/0    T      0:00 ./myshell
+ 5218 pts/0    S+     0:00 script
+ 5219 pts/5    Ss     0:00 bash -i
+ 5304 pts/5    S+     0:00 script
+ 5305 pts/6    Ss     0:00 bash -i
+ 5317 pts/6    S+     0:00 ./sfshell
+ 5361 pts/6    Z+     0:00 [time] <defunct>
+ 5412 pts/6    Z+     0:00 [sleep] <defunct>
+ 5679 pts/6    S+     0:00 sleep 100
+ 5689 pts/6    R+     0:00 ps a
+Child process complete
+sfshell[15]: 
+kill 5679
+sfshell[16]: 
+ps a
+[Child pid = 5726, background = FALSE]
+  PID TTY      STAT   TIME COMMAND
+   43 pts/1    Ss+    0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh"
+ 441438abd1ac652551dbe4d408dfcec8a499b8b
+   44 pts/1    S+     0:00 sh /mnt/c/Users/Stefan/.vscode/extensions/ms-vscode-r
+emote.remote-wsl-0.75.3/scripts/wslServe
+   49 pts/1    S+     0:00 sh /home/sf/.vscode-server/bin/441438abd1ac652551dbe4
+d408dfcec8a499b8bf/bin/code-server --hos
+   53 pts/1    Sl+    0:03 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+   64 pts/1    Sl+    0:02 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  110 pts/1    Sl+    1:16 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  136 pts/1    Sl+    0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  178 pts/1    Sl+    0:20 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools
+  201 pts/4    Ss+    0:00 /bin/bash --init-file /home/sf/.vscode-server/bin/441
+438abd1ac652551dbe4d408dfcec8a499b8bf/ou
+  470 pts/3    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+  479 pts/2    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+ 2867 pts/0    Ss     0:00 -bash
+ 2915 pts/1    Sl+    0:00 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools-srv 178 {
+ 4847 pts/0    T      0:00 ./myshell
+ 5117 pts/0    T      0:00 ./myshell
+ 5218 pts/0    R+     0:00 script
+ 5219 pts/5    Ss     0:00 bash -i
+ 5304 pts/5    R+     0:00 script
+ 5305 pts/6    Ss     0:00 bash -i
+ 5317 pts/6    S+     0:00 ./sfshell
+ 5361 pts/6    Z+     0:00 [time] <defunct>
+ 5412 pts/6    Z+     0:00 [sleep] <defunct>
+ 5679 pts/6    Z+     0:00 [sleep] <defunct>
+ 5726 pts/6    R+     0:00 ps a
+Child process complete
+sfshell[17]: 
+sleep 100
+[Child pid = 5748, background = FALSE]
+^\Caught <ctrl><\>
+Child process complete
+sfshell[18]: 
+ps a
+[Child pid = 5764, background = FALSE]
+  PID TTY      STAT   TIME COMMAND
+   43 pts/1    Ss+    0:00 sh -c "$VSCODE_WSL_EXT_LOCATION/scripts/wslServer.sh"
+ 441438abd1ac652551dbe4d408dfcec8a499b8b
+   44 pts/1    S+     0:00 sh /mnt/c/Users/Stefan/.vscode/extensions/ms-vscode-r
+emote.remote-wsl-0.75.3/scripts/wslServe
+   49 pts/1    S+     0:00 sh /home/sf/.vscode-server/bin/441438abd1ac652551dbe4
+d408dfcec8a499b8bf/bin/code-server --hos
+   53 pts/1    Sl+    0:03 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+   64 pts/1    Sl+    0:02 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  110 pts/1    Sl+    1:17 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  136 pts/1    Sl+    0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node /home/sf/.vscode-se
+  178 pts/1    Sl+    0:20 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools
+  201 pts/4    Ss+    0:00 /bin/bash --init-file /home/sf/.vscode-server/bin/441
+438abd1ac652551dbe4d408dfcec8a499b8bf/ou
+  470 pts/3    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+  479 pts/2    Ssl+   0:00 /home/sf/.vscode-server/bin/441438abd1ac652551dbe4d40
+8dfcec8a499b8bf/node -e  const net = req
+ 2867 pts/0    Ss     0:00 -bash
+ 2915 pts/1    Sl+    0:00 /home/sf/.vscode-server/extensions/ms-vscode.cpptools
+-1.14.4-linux-x64/bin/cpptools-srv 178 {
+ 4847 pts/0    T      0:00 ./myshell
+ 5117 pts/0    T      0:00 ./myshell
+ 5218 pts/0    R+     0:00 script
+ 5219 pts/5    Ss     0:00 bash -i
+ 5304 pts/5    D+     0:00 script
+ 5305 pts/6    Ss     0:00 bash -i
+ 5317 pts/6    S+     0:00 ./sfshell
+ 5361 pts/6    Z+     0:00 [time] <defunct>
+ 5412 pts/6    Z+     0:00 [sleep] <defunct>
+ 5679 pts/6    Z+     0:00 [sleep] <defunct>
+ 5764 pts/6    R+     0:00 ps a
+Child process complete
+sfshell[19]: 
+exit
+sfshell exiting
+sf@SF-Desktop:~/Documents/CS421_P2$ exit
+exit
+
+Script done on 2023-03-01 11:53:51-08:00 [COMMAND_EXIT_CODE="0"]
